@@ -46,3 +46,7 @@ It reads no files, settings, environment variables or credentials, and sends not
 
 Mods use the early-access function hooks API, which may change between Claude Code releases.
 Built and tested on Claude Code 2.1.293.
+
+## Privacy
+
+agent-crew collects, stores and sends no data. See [PRIVACY.md](https://github.com/abelgonzalezr/agent-crew/blob/main/plugins/agent-crew/PRIVACY.md).

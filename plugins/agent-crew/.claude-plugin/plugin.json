@@ -70,5 +70,6 @@
     "mod"
   ],
   "supportUrl": "https://github.com/abelgonzalezr/agent-crew/issues",
-  "documentationUrl": "https://github.com/abelgonzalezr/agent-crew#readme"
+  "documentationUrl": "https://github.com/abelgonzalezr/agent-crew#readme",
+  "privacyPolicyUrl": "https://github.com/abelgonzalezr/agent-crew/blob/main/plugins/agent-crew/PRIVACY.md"
 }
