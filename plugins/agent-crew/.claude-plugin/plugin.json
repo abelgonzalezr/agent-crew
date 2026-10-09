@@ -1,0 +1,64 @@
+{
+  "name": "agent-crew",
+  "version": "0.7.1",
+  "description": "Shows Claude and each subagent as an animated figure while they work",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Abel Gonzalez"
+  },
+  "userConfig": {
+    "placement": {
+      "type": "string",
+      "title": "Where agents show",
+      "description": "pane: side pane that opens when subagents start; band: row above the prompt",
+      "options": [
+        "pane",
+        "band"
+      ],
+      "default": "pane"
+    },
+    "size": {
+      "type": "string",
+      "title": "Figure size",
+      "description": "Size of the figures on desktop",
+      "options": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "medium"
+    },
+    "lingerSeconds": {
+      "type": "number",
+      "title": "Seconds shown after finishing",
+      "description": "How long a finished agent stays before it leaves",
+      "default": 4
+    },
+    "showInTerminal": {
+      "type": "boolean",
+      "title": "Show in the terminal",
+      "description": "Draw the agents in the terminal too",
+      "default": true
+    },
+    "batchToast": {
+      "type": "boolean",
+      "title": "Notify when a batch finishes",
+      "description": "Notify when a batch of two or more subagents finishes",
+      "default": true
+    },
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "description": "auto: Claude Code's language setting, then the system locale, else English",
+      "options": [
+        "auto",
+        "spanish",
+        "english"
+      ],
+      "default": "auto"
+    }
+  },
+  "license": "MIT",
+  "repository": "https://github.com/abelgonzalezr/claude-mods",
+  "homepage": "https://github.com/abelgonzalezr/claude-mods"
+}

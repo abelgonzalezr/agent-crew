@@ -1,0 +1,14 @@
+{
+  "name": "abelgonzalezr-mods",
+  "owner": {
+    "name": "Abel Gonzalez"
+  },
+  "plugins": [
+    {
+      "name": "agent-crew",
+      "source": "./plugins/agent-crew",
+      "description": "Animated figures for Claude and its subagents"
+    }
+  ],
+  "description": "Abel Gonzalez's Claude Code mods"
+}
