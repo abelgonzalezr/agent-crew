@@ -1,6 +1,6 @@
 import { expect, test } from 'claude-code/testing'
 
-import { MAIN, THINKING, WAITING, arrange, detectLang, detail, doing, batchMessage, figureSize, readConfig, clawd, colorFor, cut, elapsed, fit, glyph, prune, seat, settleMain, shortModel, summary } from './register'
+import { MAIN, THINKING, WAITING, arrange, langFrom, detail, doing, batchMessage, figureSize, readConfig, clawd, colorFor, cut, elapsed, fit, glyph, prune, seat, settleMain, shortModel, summary } from './register'
 import type { Crewmate } from '../types'
 
 function mate(id: string, parentId: string, isDone = false): Crewmate {
@@ -123,14 +123,10 @@ test('the hover detail is short and skips the type for Claude', async () => {
   expect(detail({ ...mate(MAIN, ''), kind: 'Claude', model: '', tools: 1 }, 'es')).toBe('1 herramienta')
 })
 
-test('the language comes from the option, then the setting, then the locale', async () => {
-  expect(detectLang('english', 'spanish', 'es_DO.UTF-8')).toBe('en')
-  expect(detectLang('auto', 'Spanish', 'en_US.UTF-8')).toBe('es')
-  expect(detectLang('auto', 'español', undefined)).toBe('es')
-  expect(detectLang('auto', undefined, 'es_DO.UTF-8')).toBe('es')
-  expect(detectLang('auto', 'japanese', 'en_US.UTF-8')).toBe('en')
-  expect(detectLang('auto', undefined, 'fr_FR.UTF-8')).toBe('en')
-  expect(detectLang(undefined, undefined, undefined)).toBe('en')
+test('the language is the option, English by default', async () => {
+  expect(langFrom('spanish')).toBe('es')
+  expect(langFrom('english')).toBe('en')
+  expect(langFrom(undefined)).toBe('en')
 })
 
 test('english texts', async () => {

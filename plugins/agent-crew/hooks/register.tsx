@@ -153,19 +153,9 @@ const TEXT = {
   },
 }
 
-// The option wins; then Claude Code's `language` setting; then the system locale; English otherwise.
-export function detectLang(option: unknown, setting: unknown, locale: string | undefined): Lang {
-  if (option === 'spanish') return 'es'
-  if (option === 'english') return 'en'
-  const read = (value: unknown): Lang | undefined => {
-    if (typeof value !== 'string') return undefined
-    const v = value.trim().toLowerCase()
-    if (/^(es|spa|spanish|español|espanol|castellano)\b/.test(v)) return 'es'
-    if (/^(en|eng|english|inglés|ingles)\b/.test(v)) return 'en'
-    return undefined
-  }
-
-  return read(setting) ?? read(locale?.split(/[_.@-]/)[0]) ?? 'en'
+// The language is the person's choice in the plugin options; English unless they pick Spanish.
+export function langFrom(option: unknown): Lang {
+  return option === 'spanish' ? 'es' : 'en'
 }
 
 export function doing(tool: string, lang: Lang): string {
@@ -353,8 +343,7 @@ export const register: Register = (on, options) => {
       batch = { startedAt: Math.min(...active.map(one => one.startedAt), await $.clock.now()), count: active.length, failed: 0 }
       ensureTicking($)
     }
-    const settings = (await $.settings.read()) as { language?: unknown }
-    lang = detectLang(options.language, settings.language, (await $.env.get('LC_ALL')) || (await $.env.get('LANG')))
+    lang = langFrom(options.language)
     await $.command.register({ name: 'crew', description: TEXT[lang].command })
 
     return next(e)

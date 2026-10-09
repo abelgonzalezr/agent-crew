@@ -11,7 +11,7 @@ agents finishes you get a notice like `4 agents finished (12s)`, and the pane cl
 - Agents started by other agents are indented under their parent.
 - An interrupted agent turns red.
 - `/crew` opens or closes the pane.
-- English and Spanish; picks Claude Code's `language` setting, then the system locale.
+- English or Spanish, set in the plugin options.
 
 ## Install
 
@@ -32,7 +32,17 @@ Answer `y` to add the marketplace, then pick a scope (user is the usual one).
 | Seconds shown after finishing | any number | `4` |
 | Show in the terminal | on / off | on |
 | Notify when a batch finishes | on / off | on |
-| Language | `auto`, `spanish`, `english` | `auto` |
+| Language | `english`, `spanish` | `english` |
+
+## What it hooks
+
+The mod only watches; it never changes, blocks or rewrites anything it sees.
+
+- `prompt.submit`, `agent.spawn`, `tool.call`, `turn.complete`: read to know which agents run, the tool each one is using and when it ends. Each hook passes the event on unchanged.
+- `session.start`: registers the `/crew` command.
+- `ui.render`: draws its own pane (and, in `band` placement, a row above the prompt).
+
+It reads no files, settings, environment variables or credentials, and sends nothing over the network.
 
 Mods use the early-access function hooks API, which may change between Claude Code releases.
 Built and tested on Claude Code 2.1.293.

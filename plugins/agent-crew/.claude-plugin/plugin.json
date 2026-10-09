@@ -1,6 +1,6 @@
 {
   "name": "agent-crew",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Shows Claude and each subagent as an animated figure while they work",
   "types": "./types/index.d.ts",
   "author": {
@@ -49,16 +49,16 @@
     "language": {
       "type": "string",
       "title": "Language",
-      "description": "auto: Claude Code's language setting, then the system locale, else English",
+      "description": "Language of the pane and notices",
       "options": [
-        "auto",
-        "spanish",
-        "english"
+        "english",
+        "spanish"
       ],
-      "default": "auto"
+      "default": "english"
     }
   },
   "license": "MIT",
   "repository": "https://github.com/abelgonzalezr/agent-crew",
-  "homepage": "https://github.com/abelgonzalezr/agent-crew"
+  "homepage": "https://github.com/abelgonzalezr/agent-crew",
+  "icon": ".claude-plugin/icon.png"
 }
