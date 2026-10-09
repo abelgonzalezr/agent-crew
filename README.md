@@ -1,8 +1,6 @@
-# claude-mods
+# agent-crew
 
-Personal mods for [Claude Code](https://claude.com/claude-code).
-
-## agent-crew
+A mod for [Claude Code](https://claude.com/claude-code).
 
 Watch Claude and its subagents work. When subagents start, a side pane opens with one line per agent:
 an animated pixel figure in the agent's colour, its name, what it is doing in plain words and how long
@@ -15,17 +13,17 @@ agents finishes you get a notice like `4 agents finished (12s)`, and the pane cl
 - `/crew` opens or closes the pane.
 - English and Spanish; picks Claude Code's `language` setting, then the system locale.
 
-### Install
+## Install
 
 At the prompt of a Claude Code terminal session:
 
 ```
-/plugin install agent-crew --marketplace abelgonzalezr/claude-mods
+/plugin install agent-crew --marketplace abelgonzalezr/agent-crew
 ```
 
 Answer `y` to add the marketplace, then pick a scope (user is the usual one).
 
-### Options
+## Options
 
 | Option | Values | Default |
 |---|---|---|
